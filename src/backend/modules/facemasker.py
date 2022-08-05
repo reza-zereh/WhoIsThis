@@ -6,7 +6,7 @@ import glob
 import os
 import face_recognition
 
-from extras import paths
+from libs import paths
 
 class FaceMasker:
     KEY_FACIAL_FEATURES = ('nose_bridge', 'chin')
