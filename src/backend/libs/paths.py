@@ -9,4 +9,4 @@ ASSETS_DIR = BACKEND_DIR / 'assets'
 MASKS_DIR = ASSETS_DIR / 'masks'
 STORAGE_DIR = BACKEND_DIR / 'storage'
 
-DB_CONN_STR = f"sqlite:///{STORAGE_DIR}/face.db"
+DB_CONN_STR = f"sqlite:///{str(STORAGE_DIR)}/face.db"
