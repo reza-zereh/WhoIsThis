@@ -40,5 +40,6 @@ class Embedding(Base):
     photo_id = Column(Integer, ForeignKey("photos.id"))
     model_id = Column(Integer, ForeignKey("models.id"))
     encoding = Column(String)
+    size = Column(Integer)
     # relationships
     model = relationship("Model", back_populates="embeddings")
