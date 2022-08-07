@@ -28,6 +28,7 @@ class Photo(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     filename = Column(String)
     member_id = Column(Integer, ForeignKey("members.id"))
+    is_main_photo = Column(Boolean, default=False)
     # relationships
     member = relationship("Member", back_populates="photos")
 
