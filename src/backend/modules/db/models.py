@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy import Column, String, Integer, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 
 from db import Base
@@ -19,7 +19,7 @@ class Model(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String)
     # relationships
-    photos = relationship("Photo", back_populates="model")
+    photos = relationship("Embedding", back_populates="model")
 
 
 class Photo(Base):
@@ -27,9 +27,17 @@ class Photo(Base):
     # columns
     id = Column(Integer, primary_key=True, nullable=False)
     filename = Column(String)
-    embedding = Column(String)
     member_id = Column(Integer, ForeignKey("members.id"))
-    model_id = Column(Integer, ForeignKey("models.id"))
     # relationships
     member = relationship("Member", back_populates="photos")
-    model = relationship("Model", back_populates="photos")
+
+
+class Embedding(Base):
+    __tablename__ = 'embeddings'
+    # columns
+    id = Column(Integer, primary_key=True, nullable=False)
+    photo_id = Column(Integer, ForeignKey("photos.id"))
+    model_id = Column(Integer, ForeignKey("models.id"))
+    encoding = Column(String)
+    # relationships
+    model = relationship("Model", back_populates="embeddings")
