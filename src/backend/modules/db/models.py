@@ -19,7 +19,7 @@ class Model(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String)
     # relationships
-    photos = relationship("Embedding", back_populates="model")
+    embeddings = relationship("Embedding", back_populates="model")
 
 
 class Photo(Base):
@@ -31,6 +31,7 @@ class Photo(Base):
     is_main_photo = Column(Boolean, default=False)
     # relationships
     member = relationship("Member", back_populates="photos")
+    embeddings = relationship("Embedding", back_populates="photo")
 
 
 class Embedding(Base):
@@ -42,4 +43,5 @@ class Embedding(Base):
     encoding = Column(String)
     size = Column(Integer)
     # relationships
+    photo = relationship("Photo", back_populates="embeddings")
     model = relationship("Model", back_populates="embeddings")
