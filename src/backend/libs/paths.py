@@ -9,4 +9,6 @@ ASSETS_DIR = BACKEND_DIR / 'assets'
 MASKS_DIR = ASSETS_DIR / 'masks'
 STORAGE_DIR = BACKEND_DIR / 'storage'
 
+DOTENV_FP = BACKEND_DIR / '.env'
+
 DB_CONN_STR = f"sqlite:///{str(STORAGE_DIR)}/face.db"
