@@ -5,3 +5,4 @@ dlib==19.24.0
 opencv-contrib-python==4.5.5.62
 SQLAlchemy==1.4.39
 alembic==1.8.1
+python-dotenv==0.19.2
