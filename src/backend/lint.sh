@@ -5,9 +5,10 @@ set +e
 FAILURE=false
 
 echo "safety (failure is tolerated)"
-FILE=requirements.txt
+FILE=requirements/prod.txt
 if [ -f "$FILE" ]; then
-  safety check -r requirements.txt
+    # We're in the main repo
+    safety check -r requirements/prod.txt -r requirements/dev.txt
 fi
 
 printf "\npylint\n\n"
