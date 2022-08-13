@@ -5,7 +5,7 @@ from db import Base
 
 
 class Member(Base):
-    __tablename__ = 'members'
+    __tablename__ = "members"
     # columns
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String)
@@ -14,7 +14,7 @@ class Member(Base):
 
 
 class Model(Base):
-    __tablename__ = 'models'
+    __tablename__ = "models"
     # columns
     id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String)
@@ -23,7 +23,7 @@ class Model(Base):
 
 
 class Photo(Base):
-    __tablename__ = 'photos'
+    __tablename__ = "photos"
     # columns
     id = Column(Integer, primary_key=True, nullable=False)
     filename = Column(String)
@@ -35,7 +35,7 @@ class Photo(Base):
 
 
 class Embedding(Base):
-    __tablename__ = 'embeddings'
+    __tablename__ = "embeddings"
     # columns
     id = Column(Integer, primary_key=True, nullable=False)
     photo_id = Column(Integer, ForeignKey("photos.id"))

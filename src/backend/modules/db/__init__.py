@@ -7,14 +7,14 @@ utils.load_env()
 
 
 def get_db_conn_str():
-    driver = os.getenv('DB_CONNECTION')
-    host = os.getenv('DB_HOST')
-    port = os.getenv('DB_PORT')
-    dbname = os.getenv('DB_DATABASE')
-    username = os.getenv('DB_USERNAME')
-    password = os.getenv('DB_PASSWORD')
+    driver = os.getenv("DB_CONNECTION")
+    host = os.getenv("DB_HOST")
+    port = os.getenv("DB_PORT")
+    dbname = os.getenv("DB_DATABASE")
+    username = os.getenv("DB_USERNAME")
+    password = os.getenv("DB_PASSWORD")
 
-    if driver == 'sqlite':
+    if driver == "sqlite":
         return f"sqlite:///{str(paths.STORAGE_DIR)}/{dbname}"
 
     return f"{driver}://{username}:{password}@{host}:{port}/{dbname}"
